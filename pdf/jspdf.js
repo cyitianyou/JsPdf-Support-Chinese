@@ -285,13 +285,63 @@ var jsPDF = (function (global) {
 				out('endobj');
 			},
 			putFont = function (font) {
-				font.objectNumber = newObject();
-				out('<</BaseFont/' + font.PostScriptName + '/Type/Font');
-				if (typeof font.encoding === 'string') {
-					out('/Encoding/' + font.encoding);
+				if ((font.id).slice(1) >= 14 && font.encoding === 'Identity-H') {    //Tag with Identity-h
+					var data = font.metadata.subset.encode(glyID);
+					var pdfOutput = data;
+					var pdfOutput2 = "";
+					for (var i = 0; i < pdfOutput.length; i++) {
+						pdfOutput2 += String.fromCharCode(pdfOutput[i]);
+					}
+					var fontTable = newObject();
+					out('<<');
+					out('/Length ' + pdfOutput2.length);
+					out('/Length1 ' + pdfOutput2.length);
+					out('>>');
+					out('stream');
+					out(pdfOutput2);
+					out('endstream');
+					out('endobj');
+					var fontDescriptor = newObject();
+					out('<<');
+					out('/Type /FontDescriptor');
+					out('/FontName /' + font.fontName);
+					out('/FontFile2 ' + fontTable + ' 0 R');
+					out('/FontBBox ' + PDFObject.convert(font.metadata.bbox));
+					out('/Flags ' + font.metadata.flags);
+					out('/StemV ' + font.metadata.stemV);
+					out('/ItalicAngle ' + font.metadata.italicAngle);
+					out('/Ascent ' + font.metadata.ascender);
+					out('/Descent ' + font.metadata.decender);
+					out('/CapHeight ' + font.metadata.capHeight);
+					out('>>');
+					out('endobj');
+					var DescendantFonts = newObject();
+					out('<</DW 1000/Subtype/CIDFontType2/CIDSystemInfo<</Supplement 0/Registry(Adobe)/Ordering(' + font.encoding + ')>>/Type/Font/BaseFont/' + font.fontName + '/FontDescriptor ' + fontDescriptor + ' 0 R/W' + PDFObject.convert(width[font.fontName]) + '/CIDToGIDMap/' + font.encoding + '>>');
+					out('endobj');
+					font.objectNumber = newObject();
+					out('<</Subtype/Type0/Type/Font/BaseFont/' + font.fontName + '/Encoding/' + font.encoding + '/DescendantFonts[' + DescendantFonts + ' 0 R]>>');
+					out('endobj');
 				}
-				out('/Subtype/Type1>>');
-				out('endobj');
+				else if ((font.id).slice(1) >= 14 && font.encoding === 'WinAnsiEncoding') { //Tag with WinAnsi encoding
+					var fontDescriptor = newObject();
+					out('<</Ascent 859/CapHeight 0/Descent -140/Flags 6/FontBBox[-8 -141 1000 859]/FontFamily(SimSun)/FontName/SimSun/FontStretch/Normal/FontWeight 400/ItalicAngle 0/Lang/zh-CN/StemV 0/Type/FontDescriptor/XHeight 0>>');
+					out('endobj');
+					var DescendantFonts = newObject();
+					out('<</BaseFont/SimSun/CIDSystemInfo<</Ordering(GB1)/Registry(Adobe)/Supplement 2>>/DW 1000/FontDescriptor ' + fontDescriptor + ' 0 R/Subtype/CIDFontType2/Type/Font/W[1914[1000]2886[1000]]>>');
+					out('endobj');
+					font.objectNumber = newObject();
+					out('<</BaseFont/SimSun/DescendantFonts[' + DescendantFonts + ' 0 R]/Encoding/Identity-H/Subtype/Type0/Type/Font>>');
+					out('endobj');
+				}
+				else {
+					font.objectNumber = newObject();
+					out('<</BaseFont/' + font.PostScriptName + '/Type/Font');
+					if (typeof font.encoding === 'string') {
+						out('/Encoding/' + 'WinAnsiEncoding');
+					}
+					out('/Subtype/Type1>>');
+					out('endobj');
+				}
 			},
 			putFonts = function () {
 				for (var fontKey in fonts) {
@@ -379,6 +429,7 @@ var jsPDF = (function (global) {
 					ITALIC = "italic",
 					BOLD_ITALIC = "bolditalic",
 					encoding = 'StandardEncoding',
+					ZAPF = "zapfdingbats", //13种标准字体
 					standardFonts = [
 						['Helvetica', HELVETICA, NORMAL],
 						['Helvetica-Bold', HELVETICA, BOLD],
@@ -391,7 +442,8 @@ var jsPDF = (function (global) {
 						['Times-Roman', TIMES, NORMAL],
 						['Times-Bold', TIMES, BOLD],
 						['Times-Italic', TIMES, ITALIC],
-						['Times-BoldItalic', TIMES, BOLD_ITALIC]
+						['Times-BoldItalic', TIMES, BOLD_ITALIC],
+						['ZapfDingbats', ZAPF] //13种标准字体
 					];
 
 				for (var i = 0, l = standardFonts.length; i < l; i++) {
@@ -405,6 +457,13 @@ var jsPDF = (function (global) {
 					var parts = standardFonts[i][0].split('-');
 					addToFontDictionary(fontKey, parts[0], parts[1] || '');
 				}
+				//再添加一种TrueType字体，SimSun（宋体）
+				var fontKey = addFont(
+						'SimSun',
+						'SimSun',
+						NORMAL,
+						'WinAnsiEncoding');
+				addToFontDictionary(fontKey, 'SimSun', NORMAL);
 				events.publish('addFonts', { fonts: fonts, dictionary: fontmap });
 			},
 			SAFE = function (fn) {
@@ -931,6 +990,12 @@ var jsPDF = (function (global) {
 			 *    T* (line three) Tj
 			 *   ET
 			 */
+			if (typeof this.chineseText == 'function') {
+				return this.chineseText(text, x, y, {
+					activeFontKey: 'F14',
+					activeFontSize: activeFontSize
+				});
+			}
 			function ESC(s) {
 				s = s.split("\t").join(Array(options.TabLen || 9).join(" "));
 				return pdfEscape(s, flags);
@@ -1004,6 +1069,123 @@ var jsPDF = (function (global) {
 				') Tj\nET');
 			return this;
 		};
+		API.chineseText = function (text, x, y, options) {
+			function pageOut(strtext, fontSize, key, Color, charSpace, sum, x, y) {
+				if(strtext=='') return [sum, y];
+				var lineHeightProportion = 1.15;
+				var str = '', widths, strCache = '', tkey, v = 0, cmapConfirm;
+				var strBuffer = new Array(strtext.length);
+				var tmpsum = sum;
+				sum = 0;
+				for (var s = 0; s < strtext.length; s++) {
+					strBuffer[s] = { key: key, words: null, widths: null, hexwords: null, encoding: null };
+
+					widths = fontSize * lineHeightProportion;
+					str = strtext[s];
+
+					if (key == tkey) {
+						strCache = strCache.concat(str);
+					} else if (strCache == '') {
+						strCache = str;
+					} else {
+						strBuffer[v].words = strCache;
+						strBuffer[v].key = tkey;
+						strBuffer[v].widths = sum;
+						strBuffer[v].encoding = fonts[tkey].encoding;
+						strCache = str;
+						sum = 0;
+						v++;
+					}
+					sum = sum + widths;
+					tkey = key;
+				}
+				strBuffer[v].words = strCache;
+				strBuffer[v].key = tkey;
+				strBuffer[v].widths = sum;
+				strBuffer.splice(v + 1, strtext.length);
+				for (s = 0; s < v + 1; s++) {
+					strBuffer[s].hexwords = pdfEscape16(strBuffer[s].words);
+					out('BT\n/' + strBuffer[s].key + ' ' + fontSize + ' Tf\n' + // font face, style, size
+						(fontSize * lineHeightProportion) + ' TL\n' + // line spacing
+						charSpace + ' Tc\n' + // Char spacing
+						Color + '\n' + f2(x * k + tmpsum) + ' ' + f2((pageHeight - y) * k) + ' Td\n<' + strBuffer[s].hexwords + '> Tj\nET');
+					tmpsum += strBuffer[s].widths;
+				}
+				return [tmpsum, y];
+			}
+			var pdfEscape16 = function (text) {
+				var ar = [""];
+				var padz = ["", "0", "00", "000", "0000"];
+				for (var i = 0, l = text.length, t; i < l; ++i) {
+					t = text.charCodeAt(i).toString(16).toUpperCase();
+					t = cidMap.map[padz[4 - t.length] + t];
+					if (t) {
+						ar.push(padz[4 - t.length], t);
+					}
+				}
+				return ar.join("");
+			};
+			var activeFontSize = options.activeFontSize;
+			var activeFontKey = options.activeFontKey;
+			var activeCharSpace = 0; //取自jspdf.js局部变量，这里获取不到，先给个默认值吧
+			var strColor = '0 g'; //取自jspdf.js局部变量，这里获取不到，先给个默认值吧
+			var undef, _first, _second, _third, i, charSpace;
+			var key, sum = 0, fontSize, Color, lineHeight = 0, axisCache;
+
+			// Pre-August-2012 the order of arguments was function(x, y, text, flags)
+			// in effort to make all calls have similar signature like
+			// function(data, coordinates... , miscellaneous)
+			// this method had its args flipped.
+			// code below allows backward compatibility with old arg order.
+			if (typeof text === 'number') {
+				_first = y;
+				_second = text;
+				_third = x;
+				text = _first;
+				x = _second;
+				y = _third;
+			}
+			// If there are any newlines in text, we assume
+			// the user wanted to print multiple lines, so break the
+			// text up into an array. If the text is already an array,
+			// we assume the user knows what they are doing.
+			if (typeof text === 'string' && text.match(/[\n\r]/)) {
+				text = text.split(/\r\n|\r|\n/g);
+			}
+			if (typeof text === 'string') { /* String */
+				pageOut(text, activeFontSize, activeFontKey, strColor, activeCharSpace, sum, x, y, out);
+				return this;
+			}
+			if (text instanceof Array) { /* Array  */
+				// we don't want to destroy original text array, so cloning it
+				//newtext = text;
+				// we do array.join('text that must not be PDFescaped")
+				// thus, pdfEscape each component separately
+				for (i = 0; i < text.length; i++) {
+					if (typeof text[i] === 'object') {	//The input character in the array is the object
+						key = getFont(text[i].font, text[i].fontStyle);
+						if (text[i].hasOwnProperty('fontSize')) fontSize = text[i].fontSize;
+						if (text[i].hasOwnProperty('charSpace')) charSpace = text[i].charSpace;
+						if (text[i].hasOwnProperty('TextColor')) Color = this.setTextColor(text[i].TextColor[0], text[i].TextColor[1], text[i].TextColor[2], 1);
+						axisCache = pageOut(text[i].text, fontSize, key, Color, charSpace, sum, x, y, text[i]);
+						sum = axisCache[0];
+						y = axisCache[1];
+					}
+					else {	//The input character in the array is string.
+						fontSize = activeFontSize;
+						charSpace = activeCharSpace;
+						Color = strColor;
+						axisCache = pageOut(text[i], fontSize, key, Color, charSpace, sum, x, y);
+						sum = axisCache[0];
+						y = axisCache[1];
+					}
+				}
+				return this;
+			}
+			else {
+				throw new Error('Type of text must be string or Array. "' + text + '" is not recognized.');
+			}
+		}
 
 		API.line = function (x1, y1, x2, y2) {
 			return this.lines([[x2 - x1, y2 - y1]], x1, y1);
