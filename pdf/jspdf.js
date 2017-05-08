@@ -1166,8 +1166,6 @@ var jsPDF = (function(global) {
                 //数组多条的话,每条数据都偏移一个空格,不知道为什么,先减掉吧,如果是空格的话又不偏移了
                 var offset = 0;
                 for (s = 0; s < v + 1; s++) {
-                    if (strBuffer[s].words == '威古氏')
-                        console.log('');
                     if (strBuffer[s].key.slice(1) > 13) {
                         strBuffer[s].hexwords = pdfEscape16(strBuffer[s].words);
                         out('BT\n/' + strBuffer[s].key + ' ' + fontSize + ' Tf\n' + // font face, style, size
