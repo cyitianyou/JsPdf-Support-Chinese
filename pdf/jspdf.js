@@ -1133,11 +1133,13 @@ var jsPDF = (function(global) {
                         key = activeChineseFontKey;
                         widths = fontSize * lineHeightProportion;
                         str = strtext[s];
-                    } else if (strtext[s].charCodeAt(0) < 256 && fonts[key].metadata.hasOwnProperty('Unicode')) {
+                    } else if (strtext[s].charCodeAt(0) < 256 && fonts[activeFontKey].metadata.hasOwnProperty('Unicode')) {
                         //For the default 13 font
+                        key = activeFontKey;
                         widths = (fonts[key].metadata.Unicode.widths[strtext[s].charCodeAt(0)] / fonts[key].metadata.Unicode.widths[77]) * (fontSize + charSpace);
                         str = strtext[s];
                     } else { //SetFont If there are other language characters in the font
+                        key = activeFontKey;
                         str = '';
                         widths = 0;
                     }
@@ -1161,13 +1163,17 @@ var jsPDF = (function(global) {
                 strBuffer[v].key = tkey;
                 strBuffer[v].widths = sum;
                 strBuffer.splice(v + 1, strtext.length);
+                //数组多条的话,每条数据都偏移一个空格,不知道为什么,先减掉吧,如果是空格的话又不偏移了
+                var offset = 0;
                 for (s = 0; s < v + 1; s++) {
+                    if (strBuffer[s].words == '威古氏')
+                        console.log('');
                     if (strBuffer[s].key.slice(1) > 13) {
                         strBuffer[s].hexwords = pdfEscape16(strBuffer[s].words);
                         out('BT\n/' + strBuffer[s].key + ' ' + fontSize + ' Tf\n' + // font face, style, size
                             (fontSize * lineHeightProportion) + ' TL\n' + // line spacing
                             charSpace + ' Tc\n' + // Char spacing
-                            Color + '\n' + f2(x * k + tmpsum) + ' ' + f2((pageHeight - y) * k) + ' Td\n<' + strBuffer[s].hexwords + '> Tj\nET');
+                            Color + '\n' + f2(x * k + tmpsum - offset) + ' ' + f2((pageHeight - y) * k) + ' Td\n<' + strBuffer[s].hexwords + '> Tj\nET');
                         tmpsum += strBuffer[s].widths;
                     } else {
                         var xtra = '',
@@ -1177,11 +1183,12 @@ var jsPDF = (function(global) {
                             strBuffer[s].key + ' ' + fontSize + ' Tf\n' + // font face, style, size
                             (fontSize * lineHeightProportion) + ' TL\n' + // line spacing
                             textColor +
-                            '\n' + xtra + f2(x * k + tmpsum) + ' ' + f2((pageHeight - y) * k) + ' ' + mode + '\n(' +
+                            '\n' + xtra + f2(x * k + tmpsum - offset) + ' ' + f2((pageHeight - y) * k) + ' ' + mode + '\n(' +
                             strBuffer[s].words +
                             ') Tj\nET');
                         tmpsum += strBuffer[s].widths;
                     }
+                    if (strBuffer[s].words.replace(' ', '') != '') offset += fontSize;
                 }
                 return [tmpsum, y];
             }
@@ -4960,10 +4967,17 @@ Copyright (c) 2012 Willow Systems Corporation, willow-systems.com
 
         for (i = 0, l = text.length; i < l; i++) {
             char_code = text.charCodeAt(i)
-            output.push(
-                (widths[char_code] || default_char_width) / widthsFractionOf +
-                (kerning[char_code] && kerning[char_code][prior_char_code] || 0) / kerningFractionOf
-            )
+            if (char_code >= 19968 && char_code <= 40959) {
+                output.push(1); //中文字体默认宽度为1
+            } else if (char_code <= 256) {
+                output.push(
+                    (widths[char_code] || default_char_width) / widthsFractionOf +
+                    (kerning[char_code] && kerning[char_code][prior_char_code] || 0) / kerningFractionOf
+                )
+            } else {
+                output.push(0);
+            }
+
             prior_char_code = char_code
         }
 

@@ -577,6 +577,7 @@ if (typeof window === 'object') window.jspdfAutoTableVersion = '2.3.0';
                         if (!cell) {
                             continue;
                         }
+                        var text = cell.text[0];
                         config_1.Config.applyStyles(cell.styles);
                         cell.x = table.cursor.x;
                         cell.y = table.cursor.y;
