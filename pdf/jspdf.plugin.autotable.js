@@ -5,7 +5,9 @@
  * Licensed under the MIT License.
  * http://opensource.org/licenses/mit-license
  * 
- * */if (typeof window === 'object') window.jspdfAutoTableVersion = '2.3.0';/*
+ * */
+if (typeof window === 'object') window.jspdfAutoTableVersion = '2.3.0';
+/*
  */
 (function webpackUniversalModuleDefinition(root, factory) {
     if (typeof exports === 'object' && typeof module === 'object')
@@ -14,87 +16,118 @@
         define(["jspdf"], factory);
     else {
         var a = typeof exports === 'object' ? factory(require("jspdf")) : factory(root["jsPDF"]);
-        for (var i in a) (typeof exports === 'object' ? exports : root)[i] = a[i];
+        for (var i in a)(typeof exports === 'object' ? exports : root)[i] = a[i];
     }
-})(this, function (__WEBPACK_EXTERNAL_MODULE_18__) {
-    return /******/ (function (modules) { // webpackBootstrap
-/******/ 	// The module cache
-/******/ 	var installedModules = {};
-
-/******/ 	// The require function
-/******/ 	function __webpack_require__(moduleId) {
-
-/******/ 		// Check if module is in cache
-/******/ 		if (installedModules[moduleId])
-/******/ 			return installedModules[moduleId].exports;
-
-/******/ 		// Create a new module (and put it into the cache)
-/******/ 		var module = installedModules[moduleId] = {
-/******/ 			i: moduleId,
-/******/ 			l: false,
-/******/ 			exports: {}
-                /******/
-};
-
-/******/ 		// Execute the module function
-/******/ 		modules[moduleId].call(module.exports, module, module.exports, __webpack_require__);
-
-/******/ 		// Flag the module as loaded
-/******/ 		module.l = true;
-
-/******/ 		// Return the exports of the module
-/******/ 		return module.exports;
+})(this, function(__WEBPACK_EXTERNAL_MODULE_18__) {
+    return /******/ (function(modules) { // webpackBootstrap
+            /******/ // The module cache
             /******/
-}
+            var installedModules = {};
 
+            /******/ // The require function
+            /******/
+            function __webpack_require__(moduleId) {
 
-/******/ 	// expose the modules object (__webpack_modules__)
-/******/ 	__webpack_require__.m = modules;
+                /******/ // Check if module is in cache
+                /******/
+                if (installedModules[moduleId])
+                /******/
+                    return installedModules[moduleId].exports;
 
-/******/ 	// expose the module cache
-/******/ 	__webpack_require__.c = installedModules;
-
-/******/ 	// identity function for calling harmony imports with the correct context
-/******/ 	__webpack_require__.i = function (value) { return value; };
-
-/******/ 	// define getter function for harmony exports
-/******/ 	__webpack_require__.d = function (exports, name, getter) {
-/******/ 		if (!__webpack_require__.o(exports, name)) {
-/******/ 			Object.defineProperty(exports, name, {
-/******/ 				configurable: false,
-/******/ 				enumerable: true,
-/******/ 				get: getter
+                /******/ // Create a new module (and put it into the cache)
+                /******/
+                var module = installedModules[moduleId] = {
                     /******/
-});
+                    i: moduleId,
+                    /******/
+                    l: false,
+                    /******/
+                    exports: {}
+                    /******/
+                };
+
+                /******/ // Execute the module function
                 /******/
-}
+                modules[moduleId].call(module.exports, module, module.exports, __webpack_require__);
+
+                /******/ // Flag the module as loaded
+                /******/
+                module.l = true;
+
+                /******/ // Return the exports of the module
+                /******/
+                return module.exports;
+                /******/
+            }
+
+
+            /******/ // expose the modules object (__webpack_modules__)
             /******/
-};
+            __webpack_require__.m = modules;
 
-/******/ 	// getDefaultExport function for compatibility with non-harmony modules
-/******/ 	__webpack_require__.n = function (module) {
-/******/ 		var getter = module && module.__esModule ?
-/******/ 			function getDefault() { return module['default']; } :
-/******/ 			function getModuleExports() { return module; };
-/******/ 		__webpack_require__.d(getter, 'a', getter);
-/******/ 		return getter;
+            /******/ // expose the module cache
             /******/
-};
+            __webpack_require__.c = installedModules;
 
-/******/ 	// Object.prototype.hasOwnProperty.call
-/******/ 	__webpack_require__.o = function (object, property) { return Object.prototype.hasOwnProperty.call(object, property); };
+            /******/ // identity function for calling harmony imports with the correct context
+            /******/
+            __webpack_require__.i = function(value) { return value; };
 
-/******/ 	// __webpack_public_path__
-/******/ 	__webpack_require__.p = "";
+            /******/ // define getter function for harmony exports
+            /******/
+            __webpack_require__.d = function(exports, name, getter) {
+                /******/
+                if (!__webpack_require__.o(exports, name)) {
+                    /******/
+                    Object.defineProperty(exports, name, {
+                        /******/
+                        configurable: false,
+                        /******/
+                        enumerable: true,
+                        /******/
+                        get: getter
+                            /******/
+                    });
+                    /******/
+                }
+                /******/
+            };
 
-/******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 35);
+            /******/ // getDefaultExport function for compatibility with non-harmony modules
+            /******/
+            __webpack_require__.n = function(module) {
+                /******/
+                var getter = module && module.__esModule ?
+                    /******/
+                    function getDefault() { return module['default']; } :
+                    /******/
+                    function getModuleExports() { return module; };
+                /******/
+                __webpack_require__.d(getter, 'a', getter);
+                /******/
+                return getter;
+                /******/
+            };
+
+            /******/ // Object.prototype.hasOwnProperty.call
+            /******/
+            __webpack_require__.o = function(object, property) { return Object.prototype.hasOwnProperty.call(object, property); };
+
+            /******/ // __webpack_public_path__
+            /******/
+            __webpack_require__.p = "";
+
+            /******/ // Load entry module and return exports
+            /******/
+            return __webpack_require__(__webpack_require__.s = 35);
+            /******/
+        })
+        /************************************************************************/
         /******/
-})
-/************************************************************************/
-/******/([
-/* 0 */
-/***/ function (module, exports, __webpack_require__) {
+        ([
+            /* 0 */
+            /***/
+            function(module, exports, __webpack_require__) {
 
                 "use strict";
 
@@ -109,7 +142,7 @@
                 /**
                  * Styles for the themes (overriding the default styles)
                  */
-                exports.getTheme = function (name) {
+                exports.getTheme = function(name) {
                     var themes = {
                         'striped': {
                             table: { fillColor: 255, textColor: 80, fontStyle: 'normal' },
@@ -129,6 +162,7 @@
                     };
                     return themes[name];
                 };
+
                 function getDefaults() {
                     var scaleFactor = Config.scaleFactor();
                     return {
@@ -148,13 +182,13 @@
                         tableLineWidth: 0,
                         tableLineColor: 200,
                         // Hooks
-                        createdHeaderCell: function (cell, data) { },
-                        createdCell: function (cell, data) { },
-                        drawHeaderRow: function (row, data) { },
-                        drawRow: function (row, data) { },
-                        drawHeaderCell: function (cell, data) { },
-                        drawCell: function (cell, data) { },
-                        addPageContent: function (data) { }
+                        createdHeaderCell: function(cell, data) {},
+                        createdCell: function(cell, data) {},
+                        drawHeaderRow: function(row, data) {},
+                        drawRow: function(row, data) {},
+                        drawHeaderCell: function(cell, data) {},
+                        drawCell: function(cell, data) {},
+                        addPageContent: function(data) {}
                     };
                 }
                 exports.getDefaults = getDefaults;
@@ -176,26 +210,25 @@
                         columnWidth: 'auto'
                     };
                 }
-                var Config = (function () {
-                    function Config() {
-                    }
-                    Config.pageSize = function () {
+                var Config = (function() {
+                    function Config() {}
+                    Config.pageSize = function() {
                         return table.doc.internal.pageSize;
                     };
-                    Config.applyUserStyles = function () {
+                    Config.applyUserStyles = function() {
                         Config.applyStyles(table.userStyles);
                     };
-                    Config.createTable = function (doc) {
+                    Config.createTable = function(doc) {
                         table = new models_1.Table(doc);
                         return table;
                     };
-                    Config.tableInstance = function () {
+                    Config.tableInstance = function() {
                         return table;
                     };
-                    Config.scaleFactor = function () {
+                    Config.scaleFactor = function() {
                         return table.doc.internal.scaleFactor;
                     };
-                    Config.hooksData = function (additionalData) {
+                    Config.hooksData = function(additionalData) {
                         if (additionalData === void 0) { additionalData = {}; }
                         return assign({
                             pageCount: table.pageCount,
@@ -205,9 +238,9 @@
                             cursor: table.cursor
                         }, additionalData || {});
                     };
-                    Config.initSettings = function (table, allOptions) {
-                        var _loop_1 = function (styleProp) {
-                            var styles = allOptions.map(function (opts) { return opts[styleProp] || {}; });
+                    Config.initSettings = function(table, allOptions) {
+                        var _loop_1 = function(styleProp) {
+                            var styles = allOptions.map(function(opts) { return opts[styleProp] || {}; });
                             table.styles[styleProp] = assign.apply(void 0, [{}].concat(styles));
                         };
                         // Merge styles one level deeper
@@ -217,7 +250,9 @@
                         }
                         // Append event handlers instead of replacing them
                         for (var _b = 0, _c = entries(table.hooks); _b < _c.length; _b++) {
-                            var _d = _c[_b], hookName = _d[0], list = _d[1];
+                            var _d = _c[_b],
+                                hookName = _d[0],
+                                list = _d[1];
                             for (var _e = 0, allOptions_1 = allOptions; _e < allOptions_1.length; _e++) {
                                 var opts = allOptions_1[_e];
                                 if (opts && opts[hookName]) {
@@ -229,31 +264,25 @@
                         table.settings = assign.apply(void 0, [getDefaults()].concat(allOptions));
                     };
                     // This is messy, only keep array and number format the next major version
-                    Config.marginOrPadding = function (value, defaultValue) {
+                    Config.marginOrPadding = function(value, defaultValue) {
                         var newValue = {};
                         if (Array.isArray(value)) {
                             if (value.length >= 4) {
                                 newValue = { 'top': value[0], 'right': value[1], 'bottom': value[2], 'left': value[3] };
-                            }
-                            else if (value.length === 3) {
+                            } else if (value.length === 3) {
                                 newValue = { 'top': value[0], 'right': value[1], 'bottom': value[2], 'left': value[1] };
-                            }
-                            else if (value.length === 2) {
+                            } else if (value.length === 2) {
                                 newValue = { 'top': value[0], 'right': value[1], 'bottom': value[0], 'left': value[1] };
-                            }
-                            else if (value.length === 1) {
+                            } else if (value.length === 1) {
                                 value = value[0];
-                            }
-                            else {
+                            } else {
                                 value = defaultValue;
                             }
-                        }
-                        else if (typeof value === 'object') {
+                        } else if (typeof value === 'object') {
                             if (value['vertical']) {
                                 value['top'] = value['vertical'];
                                 value['bottom'] = value['vertical'];
-                            }
-                            else if (value['horizontal']) {
+                            } else if (value['horizontal']) {
                                 value['right'] = value['horizontal'];
                                 value['left'] = value['horizontal'];
                             }
@@ -267,11 +296,11 @@
                         }
                         return newValue;
                     };
-                    Config.styles = function (styles) {
+                    Config.styles = function(styles) {
                         styles = Array.isArray(styles) ? styles : [styles];
                         return assign.apply(void 0, [defaultStyles()].concat(styles));
                     };
-                    Config.applyStyles = function (styles) {
+                    Config.applyStyles = function(styles) {
                         var doc = table.doc;
                         var styleModifiers = {
                             fillColor: doc.setFillColor,
@@ -282,14 +311,13 @@
                             font: doc.setFont,
                             fontSize: doc.setFontSize
                         };
-                        Object.keys(styleModifiers).forEach(function (name) {
+                        Object.keys(styleModifiers).forEach(function(name) {
                             var style = styles[name];
                             var modifier = styleModifiers[name];
                             if (typeof style !== 'undefined') {
                                 if (Array.isArray(style)) {
                                     modifier.apply(this, style);
-                                }
-                                else {
+                                } else {
                                     modifier(style);
                                 }
                             }
@@ -301,21 +329,23 @@
 
 
                 /***/
-},
-/* 1 */
-/***/ function (module, exports, __webpack_require__) {
+            },
+            /* 1 */
+            /***/
+            function(module, exports, __webpack_require__) {
 
                 "use strict";
 
                 var config_1 = __webpack_require__(0);
                 var painter_1 = __webpack_require__(4);
+
                 function getStringWidth(text, styles) {
                     var k = config_1.Config.scaleFactor();
                     var fontSize = styles.fontSize / k;
                     config_1.Config.applyStyles(styles);
                     text = Array.isArray(text) ? text : [text];
                     var maxWidth = 0;
-                    text.forEach(function (line) {
+                    text.forEach(function(line) {
                         var width = config_1.Config.tableInstance().doc.getStringUnitWidth(line);
                         if (width > maxWidth) {
                             maxWidth = width;
@@ -333,7 +363,7 @@
                     if (ellipsizeStr === void 0) { ellipsizeStr = '...'; }
                     if (Array.isArray(text)) {
                         var value_1 = [];
-                        text.forEach(function (str, i) {
+                        text.forEach(function(str, i) {
                             value_1[i] = ellipsize(str, width, styles, ellipsizeStr);
                         });
                         return value_1;
@@ -352,6 +382,7 @@
                     return text.trim() + ellipsizeStr;
                 }
                 exports.ellipsize = ellipsize;
+
                 function addTableBorder() {
                     var table = config_1.Config.tableInstance();
                     var styles = { lineWidth: table.settings.tableLineWidth, lineColor: table.settings.tableLineColor };
@@ -362,6 +393,7 @@
                     }
                 }
                 exports.addTableBorder = addTableBorder;
+
                 function addPage() {
                     var table = config_1.Config.tableInstance();
                     table.finalY = table.cursor.y;
@@ -379,6 +411,7 @@
                     }
                 }
                 exports.addPage = addPage;
+
                 function addContentHooks() {
                     for (var _i = 0, _a = config_1.Config.tableInstance().hooks.addPageContent; _i < _a.length; _i++) {
                         var hook = _a[_i];
@@ -388,19 +421,17 @@
                     config_1.Config.applyUserStyles();
                 }
                 exports.addContentHooks = addContentHooks;
+
                 function getFillStyle(styles) {
                     var drawLine = styles.lineWidth > 0;
                     var drawBackground = styles.fillColor || styles.fillColor === 0;
                     if (drawLine && drawBackground) {
                         return 'DF'; // Fill then stroke
-                    }
-                    else if (drawLine) {
+                    } else if (drawLine) {
                         return 'S'; // Only stroke (transparent background)
-                    }
-                    else if (drawBackground) {
+                    } else if (drawBackground) {
                         return 'F'; // Only fill, no stroke
-                    }
-                    else {
+                    } else {
                         return false;
                     }
                 }
@@ -408,9 +439,10 @@
 
 
                 /***/
-},
-/* 2 */
-/***/ function (module, exports, __webpack_require__) {
+            },
+            /* 2 */
+            /***/
+            function(module, exports, __webpack_require__) {
 
                 var implementation = __webpack_require__(26);
 
@@ -418,9 +450,10 @@
 
 
                 /***/
-},
-/* 3 */
-/***/ function (module, exports, __webpack_require__) {
+            },
+            /* 3 */
+            /***/
+            function(module, exports, __webpack_require__) {
 
                 "use strict";
 
@@ -465,14 +498,16 @@
 
 
                 /***/
-},
-/* 4 */
-/***/ function (module, exports, __webpack_require__) {
+            },
+            /* 4 */
+            /***/
+            function(module, exports, __webpack_require__) {
 
                 "use strict";
 
                 var config_1 = __webpack_require__(0);
                 var common_1 = __webpack_require__(1);
+
                 function printFullRow(row, drawRowHooks, drawCellHooks) {
                     var remainingRowHeight = 0;
                     var remainingTexts = {};
@@ -480,8 +515,7 @@
                     if (!canFitOnPage(row.height)) {
                         if (row.maxLineCount <= 1) {
                             common_1.addPage();
-                        }
-                        else {
+                        } else {
                             // Modify the row to fit the current page and calculate text and height of partial row
                             row.spansMultiplePages = true;
                             var pageHeight = table.doc.internal.pageSize.height;
@@ -526,6 +560,7 @@
                     }
                 }
                 exports.printFullRow = printFullRow;
+
                 function printRow(row, drawRowHooks, drawCellHooks) {
                     var table = config_1.Config.tableInstance();
                     row.y = table.cursor.y;
@@ -549,20 +584,16 @@
                         cell.width = column.width;
                         if (cell.styles.valign === 'top') {
                             cell.textPos.y = table.cursor.y + cell.padding('top');
-                        }
-                        else if (cell.styles.valign === 'bottom') {
+                        } else if (cell.styles.valign === 'bottom') {
                             cell.textPos.y = table.cursor.y + row.height - cell.padding('bottom');
-                        }
-                        else {
+                        } else {
                             cell.textPos.y = table.cursor.y + row.height / 2;
                         }
                         if (cell.styles.halign === 'right') {
                             cell.textPos.x = cell.x + cell.width - cell.padding('right');
-                        }
-                        else if (cell.styles.halign === 'center') {
+                        } else if (cell.styles.halign === 'center') {
                             cell.textPos.x = cell.x + cell.width / 2;
-                        }
-                        else {
+                        } else {
                             cell.textPos.x = cell.x + cell.padding('left');
                         }
                         var shouldDrawCell = true;
@@ -588,6 +619,7 @@
                     table.cursor.y += row.height;
                 }
                 exports.printRow = printRow;
+
                 function canFitOnPage(rowHeight) {
                     var table = config_1.Config.tableInstance();
                     var pos = rowHeight + table.cursor.y + table.margin('bottom');
@@ -596,9 +628,10 @@
 
 
                 /***/
-},
-/* 5 */
-/***/ function (module, exports, __webpack_require__) {
+            },
+            /* 5 */
+            /***/
+            function(module, exports, __webpack_require__) {
 
                 "use strict";
 
@@ -609,11 +642,11 @@
 
                 var toStr = Object.prototype.toString;
 
-                var isFunction = function (fn) {
+                var isFunction = function(fn) {
                     return typeof fn === 'function' && toStr.call(fn) === '[object Function]';
                 };
 
-                var arePropertyDescriptorsSupported = function () {
+                var arePropertyDescriptorsSupported = function() {
                     var obj = {};
                     try {
                         Object.defineProperty(obj, 'x', { enumerable: false, value: obj });
@@ -627,7 +660,7 @@
                 };
                 var supportsDescriptors = Object.defineProperty && arePropertyDescriptorsSupported();
 
-                var defineProperty = function (object, name, value, predicate) {
+                var defineProperty = function(object, name, value, predicate) {
                     if (name in object && (!isFunction(predicate) || !predicate())) {
                         return;
                     }
@@ -643,13 +676,13 @@
                     }
                 };
 
-                var defineProperties = function (object, map) {
+                var defineProperties = function(object, map) {
                     var predicates = arguments.length > 2 ? arguments[2] : {};
                     var props = keys(map);
                     if (hasSymbols) {
                         props = props.concat(Object.getOwnPropertySymbols(map));
                     }
-                    foreach(props, function (name) {
+                    foreach(props, function(name) {
                         defineProperty(object, name, map[name], predicates[name]);
                     });
                 };
@@ -660,9 +693,10 @@
 
 
                 /***/
-},
-/* 6 */
-/***/ function (module, exports) {
+            },
+            /* 6 */
+            /***/
+            function(module, exports) {
 
                 var has = Object.prototype.hasOwnProperty;
                 module.exports = Object.assign || function assign(target, source) {
@@ -676,19 +710,21 @@
 
 
                 /***/
-},
-/* 7 */
-/***/ function (module, exports) {
+            },
+            /* 7 */
+            /***/
+            function(module, exports) {
 
-                var $isNaN = Number.isNaN || function (a) { return a !== a; };
+                var $isNaN = Number.isNaN || function(a) { return a !== a; };
 
-                module.exports = Number.isFinite || function (x) { return typeof x === 'number' && !$isNaN(x) && x !== Infinity && x !== -Infinity; };
+                module.exports = Number.isFinite || function(x) { return typeof x === 'number' && !$isNaN(x) && x !== Infinity && x !== -Infinity; };
 
 
                 /***/
-},
-/* 8 */
-/***/ function (module, exports) {
+            },
+            /* 8 */
+            /***/
+            function(module, exports) {
 
                 module.exports = Number.isNaN || function isNaN(a) {
                     return a !== a;
@@ -696,9 +732,10 @@
 
 
                 /***/
-},
-/* 9 */
-/***/ function (module, exports) {
+            },
+            /* 9 */
+            /***/
+            function(module, exports) {
 
                 module.exports = function mod(number, modulo) {
                     var remain = number % modulo;
@@ -707,9 +744,10 @@
 
 
                 /***/
-},
-/* 10 */
-/***/ function (module, exports) {
+            },
+            /* 10 */
+            /***/
+            function(module, exports) {
 
                 module.exports = function sign(number) {
                     return number >= 0 ? 1 : -1;
@@ -717,9 +755,10 @@
 
 
                 /***/
-},
-/* 11 */
-/***/ function (module, exports) {
+            },
+            /* 11 */
+            /***/
+            function(module, exports) {
 
                 module.exports = function isPrimitive(value) {
                     return value === null || (typeof value !== 'function' && typeof value !== 'object');
@@ -727,9 +766,10 @@
 
 
                 /***/
-},
-/* 12 */
-/***/ function (module, exports, __webpack_require__) {
+            },
+            /* 12 */
+            /***/
+            function(module, exports, __webpack_require__) {
 
                 "use strict";
 
@@ -754,7 +794,7 @@
                         // Detect buggy property enumeration order in older V8 versions.
 
                         // https://bugs.chromium.org/p/v8/issues/detail?id=4118
-                        var test1 = new String('abc');  // eslint-disable-line
+                        var test1 = new String('abc'); // eslint-disable-line
                         test1[5] = 'de';
                         if (Object.getOwnPropertyNames(test1)[0] === '5') {
                             return false;
@@ -765,7 +805,7 @@
                         for (var i = 0; i < 10; i++) {
                             test2['_' + String.fromCharCode(i)] = i;
                         }
-                        var order2 = Object.getOwnPropertyNames(test2).map(function (n) {
+                        var order2 = Object.getOwnPropertyNames(test2).map(function(n) {
                             return test2[n];
                         });
                         if (order2.join('') !== '0123456789') {
@@ -774,7 +814,7 @@
 
                         // https://bugs.chromium.org/p/v8/issues/detail?id=3056
                         var test3 = {};
-                        'abcdefghijklmnopqrst'.split('').forEach(function (letter) {
+                        'abcdefghijklmnopqrst'.split('').forEach(function(letter) {
                             test3[letter] = letter;
                         });
                         if (Object.keys(Object.assign({}, test3)).join('') !==
@@ -789,7 +829,7 @@
                     }
                 }
 
-                module.exports = shouldUseNative() ? Object.assign : function (target, source) {
+                module.exports = shouldUseNative() ? Object.assign : function(target, source) {
                     var from;
                     var to = toObject(target);
                     var symbols;
@@ -818,9 +858,10 @@
 
 
                 /***/
-},
-/* 13 */
-/***/ function (module, exports, __webpack_require__) {
+            },
+            /* 13 */
+            /***/
+            function(module, exports, __webpack_require__) {
 
                 "use strict";
 
@@ -843,9 +884,10 @@
 
 
                 /***/
-},
-/* 14 */
-/***/ function (module, exports, __webpack_require__) {
+            },
+            /* 14 */
+            /***/
+            function(module, exports, __webpack_require__) {
 
                 "use strict";
 
@@ -858,15 +900,16 @@
 
 
                 /***/
-},
-/* 15 */
-/***/ function (module, exports, __webpack_require__) {
+            },
+            /* 15 */
+            /***/
+            function(module, exports, __webpack_require__) {
 
                 "use strict";
 
                 var config_1 = __webpack_require__(0);
                 exports.table = {};
-                var Table = (function () {
+                var Table = (function() {
                     function Table(doc) {
                         this.height = 0;
                         this.width = 0;
@@ -899,13 +942,13 @@
                             fontStyle: doc.internal.getFont().fontStyle
                         };
                     }
-                    Table.prototype.margin = function (side) {
+                    Table.prototype.margin = function(side) {
                         return config_1.Config.marginOrPadding(this.settings.margin, config_1.getDefaults().margin)[side];
                     };
                     return Table;
                 }());
                 exports.Table = Table;
-                var Row = (function () {
+                var Row = (function() {
                     function Row(raw, index) {
                         this.cells = {};
                         this.spansMultiplePages = false;
@@ -919,7 +962,7 @@
                     return Row;
                 }());
                 exports.Row = Row;
-                var Cell = (function () {
+                var Cell = (function() {
                     function Cell(raw) {
                         this.styles = {};
                         this.text = '';
@@ -931,22 +974,20 @@
                         this.y = 0;
                         this.raw = raw;
                     }
-                    Cell.prototype.padding = function (name) {
+                    Cell.prototype.padding = function(name) {
                         var padding = config_1.Config.marginOrPadding(this.styles.cellPadding, config_1.Config.styles([]).cellPadding);
                         if (name === 'vertical') {
                             return padding.top + padding.bottom;
-                        }
-                        else if (name === 'horizontal') {
+                        } else if (name === 'horizontal') {
                             return padding.left + padding.right;
-                        }
-                        else {
+                        } else {
                             return padding[name];
                         }
                     };
                     return Cell;
                 }());
                 exports.Cell = Cell;
-                var Column = (function () {
+                var Column = (function() {
                     function Column(dataKey, index, isImage) { //isImage added by john.chen
                         this.options = {};
                         this.contentWidth = 0;
@@ -964,9 +1005,10 @@
 
 
                 /***/
-},
-/* 16 */
-/***/ function (module, exports, __webpack_require__) {
+            },
+            /* 16 */
+            /***/
+            function(module, exports, __webpack_require__) {
 
                 "use strict";
 
@@ -981,14 +1023,14 @@
                     var fixedWidth = 0;
                     var autoWidth = 0;
                     var dynamicColumns = [];
-                    //设置图片默认高度,宽度-陈宗昌 
+                    //设置图片默认高度,宽度-cyitianyou 
                     var imageHeight = 20;
                     var imageWidth = 20;
-                    table.columns.forEach(function (column) {
+                    table.columns.forEach(function(column) {
                         column.contentWidth = 0;
-                        table.rows.concat(table.headerRow).forEach(function (row) {
+                        table.rows.concat(table.headerRow).forEach(function(row) {
                             var cell = row.cells[column.dataKey];
-                            //---------------分割线,下面注释的代码为原代码-陈宗昌------------//
+                            //---------------分割线,下面注释的代码为原代码-cyitianyou------------//
                             var width = common_1.getStringWidth(cell.text, cell.styles);
                             if (column.isImage) {
                                 var text = Array.isArray(cell.text) && cell.text.length ? cell.text[0] : cell.text;
@@ -997,7 +1039,7 @@
                             }
                             cell.contentWidth = cell.padding('horizontal') + width;
                             //cell.contentWidth = cell.padding('horizontal') + common_1.getStringWidth(cell.text, cell.styles);
-                            //---------------分割线,上面注释的代码为原代码-陈宗昌------------//
+                            //---------------分割线,上面注释的代码为原代码-cyitianyou------------//
                             if (cell.contentWidth > column.contentWidth) {
                                 column.contentWidth = cell.contentWidth;
                             }
@@ -1007,13 +1049,11 @@
                             column.preferredWidth = column.widthStyle;
                             fixedWidth += column.preferredWidth;
                             column.width = column.preferredWidth;
-                        }
-                        else if (column.widthStyle === 'wrap') {
+                        } else if (column.widthStyle === 'wrap') {
                             column.preferredWidth = column.contentWidth;
                             fixedWidth += column.preferredWidth;
                             column.width = column.preferredWidth;
-                        }
-                        else {
+                        } else {
                             column.preferredWidth = column.contentWidth;
                             autoWidth += column.contentWidth;
                             dynamicColumns.push(column);
@@ -1022,18 +1062,16 @@
                     });
                     if (typeof table.settings.tableWidth === 'number') {
                         table.width = table.settings.tableWidth;
-                    }
-                    else if (table.settings.tableWidth === 'wrap') {
+                    } else if (table.settings.tableWidth === 'wrap') {
                         table.width = table.preferredWidth;
-                    }
-                    else {
+                    } else {
                         table.width = pageWidth - table.margin('left') - table.margin('right');
                     }
                     distributeWidth(dynamicColumns, fixedWidth, autoWidth, 0);
                     // Row height, table height and text overflow
                     var all = table.rows.concat(table.headerRow);
-                    all.forEach(function (row) {
-                        table.columns.forEach(function (col) {
+                    all.forEach(function(row) {
+                        table.columns.forEach(function(col) {
                             var cell = row.cells[col.dataKey];
                             config_1.Config.applyStyles(cell.styles);
                             var textSpace = col.width - cell.padding('horizontal');
@@ -1041,34 +1079,26 @@
                                 // Add one pt to textSpace to fix rounding error
                                 try {
                                     cell.text = doc.splitTextToSize(cell.text, textSpace + 1, { fontSize: cell.styles.fontSize });
-                                }
-                                catch (e) {
+                                } catch (e) {
                                     if (e instanceof TypeError && Array.isArray(cell.text)) {
                                         cell.text = doc.splitTextToSize(cell.text.join(' '), textSpace + 1, { fontSize: cell.styles.fontSize });
-                                    }
-                                    else {
+                                    } else {
                                         throw e;
                                     }
                                 }
-                            }
-                            else if (cell.styles.overflow === 'ellipsize') {
+                            } else if (cell.styles.overflow === 'ellipsize') {
                                 cell.text = common_1.ellipsize(cell.text, textSpace, cell.styles);
-                            }
-                            else if (cell.styles.overflow === 'visible') {
-                            }
-                            else if (cell.styles.overflow === 'hidden') {
+                            } else if (cell.styles.overflow === 'visible') {} else if (cell.styles.overflow === 'hidden') {
                                 cell.text = common_1.ellipsize(cell.text, textSpace, cell.styles, '');
-                            }
-                            else if (typeof cell.styles.overflow === 'function') {
+                            } else if (typeof cell.styles.overflow === 'function') {
                                 cell.text = cell.styles.overflow(cell.text, textSpace);
-                            }
-                            else {
+                            } else {
                                 console.error("Unrecognized overflow type: " + cell.styles.overflow);
                             }
                             var k = config_1.Config.scaleFactor();
                             var lineCount = Array.isArray(cell.text) ? cell.text.length : 1;
                             var fontHeight = cell.styles.fontSize / k * config_1.FONT_ROW_RATIO;
-                            //---------------分割线,下面注释的代码为原代码-陈宗昌------------//
+                            //---------------分割线,下面注释的代码为原代码-cyitianyou------------//
                             var height = lineCount * fontHeight;
                             if (col.isImage) {
                                 var text = Array.isArray(cell.text) && cell.text.length ? cell.text[0] : cell.text;
@@ -1077,7 +1107,7 @@
                             }
                             cell.contentHeight = height + cell.padding('vertical');
                             //cell.contentHeight = lineCount * fontHeight + cell.padding('vertical');
-                            //---------------分割线,上面注释的代码为原代码-陈宗昌------------// 
+                            //---------------分割线,上面注释的代码为原代码-cyitianyou------------// 
                             if (cell.contentHeight > row.height) {
                                 row.height = cell.contentHeight;
                                 row.maxLineCount = lineCount;
@@ -1087,6 +1117,7 @@
                     });
                 }
                 exports.calculateWidths = calculateWidths;
+
                 function distributeWidth(dynamicColumns, staticWidth, dynamicColumnsContentWidth, fairWidth) {
                     var table = config_1.Config.tableInstance();
                     var extraWidth = table.width - staticWidth - dynamicColumnsContentWidth;
@@ -1102,8 +1133,7 @@
                             staticWidth += col.width;
                             distributeWidth(dynamicColumns, staticWidth, dynamicColumnsContentWidth, fairWidth);
                             break;
-                        }
-                        else {
+                        } else {
                             col.width = col.contentWidth + extraWidth * ratio;
                         }
                     }
@@ -1111,15 +1141,17 @@
 
 
                 /***/
-},
-/* 17 */
-/***/ function (module, exports, __webpack_require__) {
+            },
+            /* 17 */
+            /***/
+            function(module, exports, __webpack_require__) {
 
                 "use strict";
 
                 var models_1 = __webpack_require__(15);
                 var config_1 = __webpack_require__(0);
                 var assign = __webpack_require__(12);
+
                 function validateInput(headers, data, allOptions) {
                     if (!headers || typeof headers !== 'object') {
                         console.error("The headers should be an object or array, is: " + typeof headers);
@@ -1127,7 +1159,7 @@
                     if (!data || typeof data !== 'object') {
                         console.error("The data should be an object or array, is: " + typeof data);
                     }
-                    var _loop_1 = function (settings) {
+                    var _loop_1 = function(settings) {
                         if (settings && typeof settings !== 'object') {
                             console.error("The options parameter should be of type object, is: " + typeof settings);
                         }
@@ -1143,7 +1175,7 @@
                         if (typeof settings.afterPageContent !== 'undefined' || typeof settings.beforePageContent !== 'undefined' || typeof settings.afterPageAdd !== 'undefined') {
                             console.error("The afterPageContent, beforePageContent and afterPageAdd hooks are deprecated. Use addPageContent instead");
                             if (typeof settings.addPageContent === 'undefined') {
-                                settings.addPageContent = function (data) {
+                                settings.addPageContent = function(data) {
                                     config_1.Config.applyUserStyles();
                                     if (settings.beforePageContent)
                                         settings.beforePageContent(data);
@@ -1158,7 +1190,10 @@
                                 };
                             }
                         }
-                        [['padding', 'cellPadding'], ['lineHeight', 'rowHeight'], 'fontSize', 'overflow'].forEach(function (o) {
+                        [
+                            ['padding', 'cellPadding'],
+                            ['lineHeight', 'rowHeight'], 'fontSize', 'overflow'
+                        ].forEach(function(o) {
                             var deprecatedOption = typeof o === 'string' ? o : o[0];
                             var style = typeof o === 'string' ? o : o[1];
                             if (typeof settings[deprecatedOption] !== 'undefined') {
@@ -1172,8 +1207,7 @@
                             var styleProp = _a[_i];
                             if (settings[styleProp] && typeof settings[styleProp] !== 'object') {
                                 console.error("The " + styleProp + " style should be of type object, is: " + typeof settings[styleProp]);
-                            }
-                            else if (settings[styleProp] && settings[styleProp].rowHeight) {
+                            } else if (settings[styleProp] && settings[styleProp].rowHeight) {
                                 console.error("Use of deprecated style: rowHeight, use vertical cell padding instead");
                             }
                         }
@@ -1199,12 +1233,11 @@
                     var headerRow = new models_1.Row(inputHeaders, -1);
                     headerRow.index = -1;
                     // Columns and header row
-                    inputHeaders.forEach(function (rawColumn, index) {
+                    inputHeaders.forEach(function(rawColumn, index) {
                         var dataKey = index;
                         if (typeof rawColumn.dataKey !== 'undefined') {
                             dataKey = rawColumn.dataKey;
-                        }
-                        else if (typeof rawColumn.key !== 'undefined') {
+                        } else if (typeof rawColumn.key !== 'undefined') {
                             console.error("Deprecation warning: Use dataKey instead of key");
                             dataKey = rawColumn.key; // deprecated since 2.x
                         }
@@ -1215,8 +1248,7 @@
                         cell.styles = config_1.Config.styles([theme.table, theme.header, table.styles.styles, table.styles.headerStyles]);
                         if (cell.raw instanceof HTMLElement) {
                             cell.text = (cell.raw.innerText || '').trim();
-                        }
-                        else {
+                        } else {
                             var text = typeof cell.raw === 'object' ? cell.raw.title : cell.raw;
                             // Stringify 0 and false, but not undefined
                             cell.text = typeof cell.raw !== 'undefined' ? '' + text : '';
@@ -1230,17 +1262,16 @@
                     });
                     table.headerRow = headerRow;
                     // Rows och cells
-                    inputData.forEach(function (rawRow, i) {
+                    inputData.forEach(function(rawRow, i) {
                         var row = new models_1.Row(rawRow, i);
                         var rowStyles = i % 2 === 0 ? assign({}, theme.alternateRow, table.styles.alternateRowStyles) : {};
-                        table.columns.forEach(function (column) {
+                        table.columns.forEach(function(column) {
                             var cell = new models_1.Cell(rawRow[column.dataKey]);
                             var colStyles = table.styles.columnStyles[column.dataKey] || {};
                             cell.styles = config_1.Config.styles([theme.table, theme.body, table.styles.styles, table.styles.bodyStyles, rowStyles, colStyles]);
                             if (cell.raw && cell.raw instanceof HTMLElement) {
                                 cell.text = (cell.raw.innerText || '').trim();
-                            }
-                            else {
+                            } else {
                                 // Stringify 0 and false, but not undefined
                                 cell.text = typeof cell.raw !== 'undefined' ? '' + cell.raw : '';
                             }
@@ -1258,16 +1289,18 @@
 
 
                 /***/
-},
-/* 18 */
-/***/ function (module, exports) {
+            },
+            /* 18 */
+            /***/
+            function(module, exports) {
 
                 module.exports = __WEBPACK_EXTERNAL_MODULE_18__;
 
                 /***/
-},
-/* 19 */
-/***/ function (module, exports, __webpack_require__) {
+            },
+            /* 19 */
+            /***/
+            function(module, exports, __webpack_require__) {
 
                 "use strict";
 
@@ -1359,9 +1392,10 @@
 
 
                 /***/
-},
-/* 20 */
-/***/ function (module, exports, __webpack_require__) {
+            },
+            /* 20 */
+            /***/
+            function(module, exports, __webpack_require__) {
 
                 "use strict";
 
@@ -1399,7 +1433,7 @@
                 ].join('');
                 var trimRegex = new RegExp('(^[' + ws + ']+)|([' + ws + ']+$)', 'g');
                 var replace = bind.call(Function.call, String.prototype.replace);
-                var trim = function (value) {
+                var trim = function(value) {
                     return replace(value, trimRegex, '');
                 };
 
@@ -1628,9 +1662,10 @@
 
 
                 /***/
-},
-/* 21 */
-/***/ function (module, exports, __webpack_require__) {
+            },
+            /* 21 */
+            /***/
+            function(module, exports, __webpack_require__) {
 
                 "use strict";
 
@@ -1652,9 +1687,10 @@
 
 
                 /***/
-},
-/* 22 */
-/***/ function (module, exports) {
+            },
+            /* 22 */
+            /***/
+            function(module, exports) {
 
                 module.exports = function isPrimitive(value) {
                     return value === null || (typeof value !== 'function' && typeof value !== 'object');
@@ -1662,9 +1698,10 @@
 
 
                 /***/
-},
-/* 23 */
-/***/ function (module, exports, __webpack_require__) {
+            },
+            /* 23 */
+            /***/
+            function(module, exports, __webpack_require__) {
 
                 "use strict";
 
@@ -1677,7 +1714,7 @@
 
                 // https://es5.github.io/#x8.12
                 var ES5internalSlots = {
-                    '[[DefaultValue]]': function (O, hint) {
+                    '[[DefaultValue]]': function(O, hint) {
                         var actualHint = hint || (toStr.call(O) === '[object Date]' ? String : Number);
 
                         if (actualHint === String || actualHint === Number) {
@@ -1707,9 +1744,10 @@
 
 
                 /***/
-},
-/* 24 */
-/***/ function (module, exports, __webpack_require__) {
+            },
+            /* 24 */
+            /***/
+            function(module, exports, __webpack_require__) {
 
                 "use strict";
 
@@ -1789,9 +1827,10 @@
 
 
                 /***/
-},
-/* 25 */
-/***/ function (module, exports) {
+            },
+            /* 25 */
+            /***/
+            function(module, exports) {
 
 
                 var hasOwn = Object.prototype.hasOwnProperty;
@@ -1818,9 +1857,10 @@
 
 
                 /***/
-},
-/* 26 */
-/***/ function (module, exports) {
+            },
+            /* 26 */
+            /***/
+            function(module, exports) {
 
                 var ERROR_MESSAGE = 'Function.prototype.bind called on incompatible ';
                 var slice = Array.prototype.slice;
@@ -1835,7 +1875,7 @@
                     var args = slice.call(arguments, 1);
 
                     var bound;
-                    var binder = function () {
+                    var binder = function() {
                         if (this instanceof bound) {
                             var result = target.apply(
                                 this,
@@ -1862,7 +1902,7 @@
                     bound = Function('binder', 'return function (' + boundArgs.join(',') + '){ return binder.apply(this,arguments); }')(binder);
 
                     if (target.prototype) {
-                        var Empty = function Empty() { };
+                        var Empty = function Empty() {};
                         Empty.prototype = target.prototype;
                         bound.prototype = new Empty();
                         Empty.prototype = null;
@@ -1873,9 +1913,10 @@
 
 
                 /***/
-},
-/* 27 */
-/***/ function (module, exports, __webpack_require__) {
+            },
+            /* 27 */
+            /***/
+            function(module, exports, __webpack_require__) {
 
                 var bind = __webpack_require__(2);
 
@@ -1883,9 +1924,10 @@
 
 
                 /***/
-},
-/* 28 */
-/***/ function (module, exports, __webpack_require__) {
+            },
+            /* 28 */
+            /***/
+            function(module, exports, __webpack_require__) {
 
                 "use strict";
 
@@ -1911,9 +1953,10 @@
 
 
                 /***/
-},
-/* 29 */
-/***/ function (module, exports, __webpack_require__) {
+            },
+            /* 29 */
+            /***/
+            function(module, exports, __webpack_require__) {
 
                 "use strict";
 
@@ -1938,9 +1981,10 @@
 
 
                 /***/
-},
-/* 30 */
-/***/ function (module, exports, __webpack_require__) {
+            },
+            /* 30 */
+            /***/
+            function(module, exports, __webpack_require__) {
 
                 "use strict";
 
@@ -1973,9 +2017,10 @@
 
 
                 /***/
-},
-/* 31 */
-/***/ function (module, exports, __webpack_require__) {
+            },
+            /* 31 */
+            /***/
+            function(module, exports, __webpack_require__) {
 
                 "use strict";
 
@@ -1987,7 +2032,7 @@
                 var isArgs = __webpack_require__(32);
                 var isEnumerable = Object.prototype.propertyIsEnumerable;
                 var hasDontEnumBug = !isEnumerable.call({ toString: null }, 'toString');
-                var hasProtoEnumBug = isEnumerable.call(function () { }, 'prototype');
+                var hasProtoEnumBug = isEnumerable.call(function() {}, 'prototype');
                 var dontEnums = [
                     'toString',
                     'toLocaleString',
@@ -1997,7 +2042,7 @@
                     'propertyIsEnumerable',
                     'constructor'
                 ];
-                var equalsConstructorPrototype = function (o) {
+                var equalsConstructorPrototype = function(o) {
                     var ctor = o.constructor;
                     return ctor && ctor.prototype === o;
                 };
@@ -2023,7 +2068,7 @@
                     $webkitStorageInfo: true,
                     $window: true
                 };
-                var hasAutomationEqualityBug = (function () {
+                var hasAutomationEqualityBug = (function() {
                     /* global window */
                     if (typeof window === 'undefined') { return false; }
                     for (var k in window) {
@@ -2041,7 +2086,7 @@
                     }
                     return false;
                 }());
-                var equalsConstructorPrototypeIfNotBuggy = function (o) {
+                var equalsConstructorPrototypeIfNotBuggy = function(o) {
                     /* global window */
                     if (typeof window === 'undefined' || !hasAutomationEqualityBug) {
                         return equalsConstructorPrototype(o);
@@ -2097,7 +2142,7 @@
 
                 keysShim.shim = function shimObjectKeys() {
                     if (Object.keys) {
-                        var keysWorksWithArguments = (function () {
+                        var keysWorksWithArguments = (function() {
                             // Safari 5.0 bug
                             return (Object.keys(arguments) || '').length === 2;
                         }(1, 2));
@@ -2121,9 +2166,10 @@
 
 
                 /***/
-},
-/* 32 */
-/***/ function (module, exports, __webpack_require__) {
+            },
+            /* 32 */
+            /***/
+            function(module, exports, __webpack_require__) {
 
                 "use strict";
 
@@ -2146,9 +2192,10 @@
 
 
                 /***/
-},
-/* 33 */
-/***/ function (module, exports, __webpack_require__) {
+            },
+            /* 33 */
+            /***/
+            function(module, exports, __webpack_require__) {
 
                 "use strict";
 
@@ -2171,9 +2218,10 @@
 
 
                 /***/
-},
-/* 34 */
-/***/ function (module, exports, __webpack_require__) {
+            },
+            /* 34 */
+            /***/
+            function(module, exports, __webpack_require__) {
 
                 "use strict";
 
@@ -2193,9 +2241,10 @@
 
 
                 /***/
-},
-/* 35 */
-/***/ function (module, exports, __webpack_require__) {
+            },
+            /* 35 */
+            /***/
+            function(module, exports, __webpack_require__) {
 
                 "use strict";
 
@@ -2212,7 +2261,7 @@
                  * @param {Object[][]|String[][]} data Either as an array of objects or array of strings
                  * @param {Object} [userOptions={}] Options that will override the default ones
                  */
-                jsPDF.API.autoTable = function (headers, data, tableOptions) {
+                jsPDF.API.autoTable = function(headers, data, tableOptions) {
                     if (tableOptions === void 0) { tableOptions = {}; }
                     this.autoTableState = this.autoTableState || {};
                     jsPDF.autoTableState = jsPDF.autoTableState || {};
@@ -2246,18 +2295,17 @@
                         painter_1.printRow(table.headerRow, table.hooks.drawHeaderRow, table.hooks.drawHeaderCell);
                     }
                     config_1.Config.applyUserStyles();
-                    table.rows.forEach(function (row) {
+                    table.rows.forEach(function(row) {
                         painter_1.printFullRow(row, table.hooks.drawRow, table.hooks.drawCell);
                     });
                     common_1.addTableBorder();
                     // Don't call global and document addPageContent more than once for each page
-                    var pageNumber = this.internal.getNumberOfPages(); //jspdf.js版本更新,此处做细微修改,陈宗昌 -2017.04.25
+                    var pageNumber = this.internal.getNumberOfPages(); //jspdf.js版本更新,此处做细微修改,cyitianyou -2017.04.25
                     if (this.autoTableState.addPageHookPages && this.autoTableState.addPageHookPages[pageNumber]) {
                         if (typeof tableOptions['addPageContent'] === 'function') {
                             tableOptions['addPageContent'](config_1.Config.hooksData());
                         }
-                    }
-                    else {
+                    } else {
                         if (!this.autoTableState.addPageHookPages)
                             this.autoTableState.addPageHookPages = {};
                         this.autoTableState.addPageHookPages[pageNumber] = true;
@@ -2270,24 +2318,22 @@
                 };
                 // Enables doc.autoTable.previous.finalY || 40;
                 jsPDF.API.autoTable.previous = false;
-                jsPDF.API.autoTableSetDefaults = function (defaults) {
+                jsPDF.API.autoTableSetDefaults = function(defaults) {
                     if (!this.autoTableState)
                         this.autoTableState = {};
                     if (defaults && typeof defaults === 'object') {
                         this.autoTableState.defaults = defaults;
-                    }
-                    else {
+                    } else {
                         delete this.autoTableState.defaults;
                     }
                     return this;
                 };
-                jsPDF.autoTableSetDefaults = function (defaults) {
+                jsPDF.autoTableSetDefaults = function(defaults) {
                     if (!jsPDF.autoTableState)
                         jsPDF.autoTableState = {};
                     if (defaults && typeof defaults === 'object') {
                         this.autoTableState.defaults = defaults;
-                    }
-                    else {
+                    } else {
                         delete this.autoTableState.defaults;
                     }
                     jsPDF.autoTableState.defaults = defaults;
@@ -2299,13 +2345,14 @@
                  * @param includeHiddenElements If to include hidden rows and columns (defaults to false)
                  * @returns Object Object with two properties, columns and rows
                  */
-                jsPDF.API.autoTableHtmlToJson = function (tableElem, includeHiddenElements) {
+                jsPDF.API.autoTableHtmlToJson = function(tableElem, includeHiddenElements) {
                     includeHiddenElements = includeHiddenElements || false;
                     if (!tableElem || !(tableElem instanceof HTMLTableElement)) {
                         console.error("A HTMLTableElement has to be sent to autoTableHtmlToJson");
                         return null;
                     }
-                    var columns = {}, rows = [];
+                    var columns = {},
+                        rows = [];
                     var header = tableElem.rows[0];
                     for (var i = 0; i < header.cells.length; i++) {
                         var cell = header.cells[i];
@@ -2314,12 +2361,12 @@
                             columns[i] = cell;
                         }
                     }
-                    var _loop_1 = function (i) {
+                    var _loop_1 = function(i) {
                         var tableRow = tableElem.rows[i];
                         var style = window.getComputedStyle(tableRow);
                         if (includeHiddenElements || style.display !== 'none') {
                             var rowData_1 = [];
-                            Object.keys(columns).forEach(function (key) {
+                            Object.keys(columns).forEach(function(key) {
                                 var cell = tableRow.cells[key];
                                 rowData_1.push(cell);
                             });
@@ -2329,14 +2376,14 @@
                     for (var i = 1; i < tableElem.rows.length; i++) {
                         _loop_1(i);
                     }
-                    var values = Object.keys(columns).map(function (key) { return columns[key]; });
+                    var values = Object.keys(columns).map(function(key) { return columns[key]; });
                     return { columns: values, rows: rows, data: rows };
                 };
                 /**
                  * Improved text function with halign and valign support
                  * Inspiration from: http://stackoverflow.com/questions/28327510/align-text-right-using-jspdf/28433113#28433113
                  */
-                jsPDF.API.autoTableText = function (text, x, y, styles) {
+                jsPDF.API.autoTableText = function(text, x, y, styles) {
                     if (typeof x !== 'number' || typeof y !== 'number') {
                         console.error('The x and y parameters are required. Missing for the text: ', text);
                     }
@@ -2374,19 +2421,18 @@
                 /**
                  * @deprecated Use doc.autoTable.previous.finalY instead
                  */
-                jsPDF.API.autoTableEndPosY = function () {
+                jsPDF.API.autoTableEndPosY = function() {
                     var prev = this.autoTable.previous;
                     if (prev.cursor && typeof prev.cursor.y === 'number') {
                         return prev.cursor.y;
-                    }
-                    else {
+                    } else {
                         return 0;
                     }
                 };
                 /**
                  * @deprecated Use jsPDF.autoTableSetDefaults({addPageContent: function() {}}) instead
                  */
-                jsPDF.API.autoTableAddPageContent = function (hook) {
+                jsPDF.API.autoTableAddPageContent = function(hook) {
                     if (!jsPDF.API.autoTable.globalDefaults) {
                         jsPDF.API.autoTable.globalDefaults = {};
                     }
@@ -2396,13 +2442,14 @@
                 /**
                  * @deprecated Use data.addPage in hooks instead
                  */
-                jsPDF.API.autoTableAddPage = function () {
+                jsPDF.API.autoTableAddPage = function() {
                     common_1.addPage();
                     return this;
                 };
 
 
                 /***/
-}
-/******/]);
+            }
+            /******/
+        ]);
 });
